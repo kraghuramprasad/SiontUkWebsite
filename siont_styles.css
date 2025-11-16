@@ -25,7 +25,8 @@
 .header-logo-img {
     height: 45px;
     width: auto;
-    margin-right: 10px;
+    object-fit: contain;
+    display: block;
 }
 
 .logo {
