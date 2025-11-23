@@ -339,6 +339,18 @@
 }
 
 /* CONTACT FORM STYLES */
+.form-field small.error {
+    color: #cc0000;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
+.form-field input.error,
+.form-field textarea.error {
+    border: 2px solid #cc0000 !important;
+}
+
 .contact-form-section .form-card {
   background: #fff;
   padding: 24px;

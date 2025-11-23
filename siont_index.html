@@ -265,39 +265,49 @@
         CONTACT US FORM
     ============================ -->
     <section id="contact" class="section contact-form-section" aria-label="Contact us form">
-    <div class="form-card">
-        <h2>Contact Us</h2>
+        <div class="form-card">
+            <h2>Contact Us</h2>
 
-        <form id="contactForm" action="https://formsubmit.co/contact@siontuk.com" method="POST" novalidate>
-        <!-- FormSubmit helpers -->
-        <input type="hidden" name="_captcha" value="false">
-        <!-- optional: redirect to a thank you page (adjust URL if you host) -->
-        <!--<input type="hidden" name="_next" value="https://your-site.com/thank-you.html">-->
+            <form id="contactForm" action="https://formsubmit.co/contact@siontuk.com" method="POST" novalidate>
 
-        <!-- ACCESSIBILITY: labels + aria -->
-        <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
-        <input id="fullName" name="Full Name" type="text" required aria-required="true" placeholder="Your full name">
+                <!--<input type="hidden" name="_subject" value="New Contact Request from SIONT UK Website">-->
+                <input type="hidden" id="emailSubject" name="_subject" value="">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_bcc" value="kraghuramprasad@yahoo.com">
+                <input type="hidden" name="_autoresponse" value="Thank you for contacting SIONT UK LTD. We will respond shortly.">
 
-        <label for="email">Email Address <span aria-hidden="true">*</span></label>
-        <input id="email" name="Email" type="email" required aria-required="true" placeholder="name@company.com">
+                <div class="form-field">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    <small class="error"></small>
+                </div>
 
-        <label for="phone">Phone Number</label>
-        <input id="phone" name="Phone" type="tel" pattern="\\d{7,15}" placeholder="02083770706" aria-describedby="phoneHelp">
+                <div class="form-field">
+                    <label>Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <small class="error"></small>
+                </div>
 
-        <small id="phoneHelp">Digits only, 7–15 characters</small>
+                <div class="form-field">
+                    <label>Phone Number (optional)</label>
+                    <input type="text" id="phone" name="phone">
+                    <small class="error"></small>
+                </div>
 
-        <label for="company">Company Name</label>
-        <input id="company" name="Company Name" type="text" placeholder="Your company (optional)">
+                <div class="form-field">
+                    <label>Message</label>
+                    <textarea id="message" name="message" rows="5" required>Service looking for and your query</textarea>
+                    <small class="error"></small>
+                </div>
 
-        <label for="message">Message <span aria-hidden="true">*</span></label>
-        <textarea id="message" name="Message" rows="5" required aria-required="true" minlength="10">Service looking for and query</textarea>
+                <button type="submit">Send Message</button>
+                <p id="successMessage" style="display:none; color:green; margin-top:15px; font-weight:600;">
+                    Your details have been sent successfully.
+                </p>
 
-        <div class="form-actions">
-            <button type="submit" class="btn primary" id="sendBtn">Send Message</button>
-            <div id="formStatus" role="status" aria-live="polite"></div>
+
+            </form>
         </div>
-        </form>
-    </div>
     </section>
 
     <div id="accessibilityBtn" class="accessibility-btn" title="Accessibility Settings">
@@ -380,7 +390,7 @@
 
 
     <!-- Link JS -->
-    <script src="siont_script.js"></script>
+    <script src="siont_scripts.js"></script>
 </body>
 </html>
 
