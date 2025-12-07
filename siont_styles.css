@@ -42,10 +42,14 @@
     letter-spacing: 1px;
 }
 
+/* 07Dec2025: Start - 
+navbar scrolls horizontally on Mobile, Tablets, Resized desktop windows, proper dropdown
+*/
+/* BASE DESKTOP STYLES */
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: center;  /* keep centered on desktop */
     gap: 26px;
     background: #d7f4ff;
     padding: 10px 25px;
@@ -55,7 +59,7 @@
 
 .nav-links li a {
     text-decoration: none;
-    color: #2B2B2B; /* warm brown #5A3A31; Teal-Navy Hybrid #2B2B2B; */
+    color: #2B2B2B;
     font-size: 15px;
     font-weight: 600;
     display: flex;
@@ -68,23 +72,60 @@
 
 .nav-links li a:hover {
     background: #e8d7cf;
-    color: #D2691E; /* chestnut orange */
+    color: #D2691E;
 }
 
+/* Diamond icon */
 .diamond {
     width: 8px;
     height: 8px;
-    background: black;   /* #cda385; */
+    background: black;
     transform: rotate(45deg);
     display: inline-block;
     transition: 0.3s ease;
 }
 
 .nav-links li a:hover .diamond {
-    background: #A54B17; /* darker robin tone */
+    background: #A54B17;
 }
 
-/* Dropdown base */
+/* Horizontal scroll for tablets & small desktop windows */
+@media (max-width: 1100px) {
+    .nav-links {
+        overflow-x: auto;                      /* enable swipe scrolling */
+        overflow-y: hidden;
+        white-space: nowrap;                   /* keep items in one line */
+        -webkit-overflow-scrolling: touch;     /* smooth scroll on mobile browsers */
+
+        justify-content: flex-start;           /* prevent centered overflow issues */
+        gap: 20px;
+        padding: 10px 15px;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto;                        /* prevent items shrinking */
+        position: relative;                    /* ensure dropdown menus stay attached */
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 600px) {
+    .nav-links {
+        gap: 16px;
+        padding: 8px 14px;
+    }
+
+    .nav-links li a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+}
+
+/* DROPDOWN MENU */
 .dropdown {
     position: relative;
 }
@@ -93,7 +134,7 @@
     position: absolute;
     top: 40px;
     left: 0;
-    background: #f0e4dd; /* soft robin-cream */
+    background: #f0e4dd;
     padding: 10px 0;
     border-radius: 12px;
     list-style: none;
@@ -103,7 +144,7 @@
     visibility: hidden;
     transform: translateY(10px);
     transition: 0.25s ease;
-    z-index: 9999;
+    z-index: 9999; /* IMPORTANT */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -116,15 +157,17 @@
     display: block;
     padding: 10px 20px;
     text-decoration: none;
-    color: #5A3A31;  /* warm robin brown */
+    color: #5A3A31;
     font-weight: 500;
     transition: 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
-    background: #e8d7cf; /* soft warm highlight */
-    color: #D2691E;       /* robin orange */
+    background: #e8d7cf;
+    color: #D2691E;
 }
+
+/* 07Dec2025: End  */
 
 /* Horizontal Bar Heading */
 .section-heading {
@@ -309,7 +352,7 @@
   display: grid;
   place-items: center;
   border-radius: 10px;
-  background: #F0E4DD; /* soft robin cream */
+  background: #e8e0dc; /* #F0E4DD soft robin cream */
 }
 
 .contact-info h4 {
